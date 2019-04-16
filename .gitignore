@@ -1,11 +1,30 @@
-# Compiled class file
+# Compiled source #
+###################
+*.com
 *.class
+*.dll
+*.exe
+*.o
+*.so
 
 # Log file
 *.log
 
 # BlueJ files
 *.ctxt
+
+# IDEA
+# Covers JetBrains IDEs: IntelliJ, RubyMine, PhpStorm, AppCode, PyCharm
+
+/*.iml
+/*/*.iml
+
+## Directory-based project format:
+.idea/
+## Plugin-specific files:
+
+# IntelliJ
+out/
 
 # Mobile Tools for Java (J2ME)
 .mtj.tmp/
