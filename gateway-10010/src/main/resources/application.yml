@@ -18,7 +18,7 @@ zuul:
   # 路由前缀
 #  prefix: /demo
   routes:
-    # 要路由的服务: 映射地址
+    # 要路由的服务: 映射地址     ->面向服务的路由
     # spring.application.name: /服务前缀/RequestMapping地址
     common-service: /common-service/**
 hystrix:
