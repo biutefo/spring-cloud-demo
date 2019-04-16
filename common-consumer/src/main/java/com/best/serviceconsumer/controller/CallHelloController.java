@@ -1,6 +1,7 @@
 package com.best.serviceconsumer.controller;
 
 import com.best.microservice.entity.HelloMsg;
+import com.best.serviceconsumer.client.HelloClient;
 import com.netflix.hystrix.contrib.javanica.annotation.DefaultProperties;
 import com.netflix.hystrix.contrib.javanica.annotation.HystrixCommand;
 import com.netflix.hystrix.contrib.javanica.annotation.HystrixProperty;
@@ -17,10 +18,13 @@ import org.springframework.web.client.RestTemplate;
 @DefaultProperties(defaultFallback = "defaultFallback")//只能为无参方法
 public class CallHelloController {
 
+	public static final String serviceId = "common-service";
+
 	@Autowired
 	private RestTemplate restTemplate;
 
-	private static final String serviceId = "common-service";
+	@Autowired
+	private HelloClient helloClient;
 
 	/**
 	 *
@@ -51,7 +55,7 @@ public class CallHelloController {
 					value = "3000")
 	})
 	@GetMapping("callSayHello")
-	public ResponseEntity<String> callHello() throws InterruptedException {
+	public ResponseEntity<String> callSayHello() throws InterruptedException {
 		//Thread.sleep(3000);
 		String url = "http://"+serviceId+"/sayHello";
 		String helloMsg = restTemplate
@@ -59,6 +63,17 @@ public class CallHelloController {
 		log.info(helloMsg.toString());
 		return ResponseEntity.ok(helloMsg);
 	}
+
+	@GetMapping("callSayHelloUsingFeign")
+	public HelloMsg callSayHelloUsingFeign(){
+		return helloClient.sayHello();
+	}
+
+
+
+
+
+
 
 	public ResponseEntity<String> callHelloFallback() {
 		return ResponseEntity.ok("不好意思 ，callHello调用失败。");
