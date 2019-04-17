@@ -25,10 +25,10 @@ zuul:
 hystrix:
   command:
     default:
-    execution:
-    isolation:
-    thread:
-    timeoutInMillisecond: 5000 # 熔断超时时长：5000ms
+      execution:
+        isolation:
+          thread:
+            timeoutInMillisecond: 5000 # 熔断超时时长：5000ms
 ribbon:
   ConnectTimeout: 1000 # 连接超时时间(ms)
   ReadTimeout: 3500 # 通信超时时间(ms)
