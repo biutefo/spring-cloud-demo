@@ -24,6 +24,9 @@ public class CallHelloController {
 	private RestTemplate restTemplate;
 
 	@Autowired
+	private RestTemplate loadBalancedRestTemplate;
+
+	@Autowired
 	private HelloClient helloClient;
 
 	/**
@@ -58,6 +61,16 @@ public class CallHelloController {
 	public ResponseEntity<String> callSayHello() throws InterruptedException {
 		//Thread.sleep(3000);
 		String url = "http://"+serviceId+"/sayHello";
+		String helloMsg = loadBalancedRestTemplate
+				.getForObject(url, String.class);
+		log.info(helloMsg.toString());
+		return ResponseEntity.ok(helloMsg);
+	}
+
+	@GetMapping("callSayHelloByZuul")
+	public ResponseEntity<String> callSayHelloByZuul() throws InterruptedException {
+		//Thread.sleep(3000);
+		String url = "http://127.0.0.1:10010/"+serviceId+"/sayHello";
 		String helloMsg = restTemplate
 				.getForObject(url, String.class);
 		log.info(helloMsg.toString());
