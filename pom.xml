@@ -12,6 +12,7 @@
         <module>gateway-10010</module>
         <module>common</module>
         <module>common-consumer</module>
+        <module>swagger-10000</module>
     </modules>
     <packaging>pom</packaging>
 

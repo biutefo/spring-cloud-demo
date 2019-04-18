@@ -1,0 +1,18 @@
+server:
+  port: 10000
+spring:
+  application:
+    name: swagger
+    #eureka:
+    #  client:
+    #    service-url:
+    #      defaultZone: http://127.0.0.1:10086/eureka
+    #    register-with-eureka: false #不注册自己
+    #    fetch-registry: false #不拉取服务列表
+    #  instance:
+    #    ip-address: 127.0.0.1
+    #    prefer-ip-address: true
+    #    instance-id: ${spring.application.name}:${server.port}
+    #  server:
+    # 关闭自我保护机制 心跳检测不到服务立即剔除
+#    enable-self-preservation: false
