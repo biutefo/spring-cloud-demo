@@ -8,11 +8,13 @@
     <artifactId>hello</artifactId>
     <version>1.0.0-SNAPSHOT</version>
     <modules>
+        <module>common</module>
+        <module>user</module>
         <module>registration-center-10086</module>
         <module>gateway-10010</module>
-        <module>common</module>
-        <module>common-consumer</module>
+        <module>service-consumer-8100</module>
         <module>swagger-10000</module>
+        <module>springboot-swagger-10001</module>
     </modules>
     <packaging>pom</packaging>
 
