@@ -19,7 +19,7 @@ spring:
           predicates:
             - Path=/consumer/**
     consul:
-      host: 10.45.4.22 # consul ip
+      host: 10.45.4.22 #127.0.0.1 # consul ip 网络原因可能导致健康检查失败
       port: 8500 #consul http端口
       discovery:
         enabled: true # 是否开启服务发现
