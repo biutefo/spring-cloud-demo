@@ -1,0 +1,16 @@
+server:
+  port: 8090
+spring:
+  application:
+    name: cloud-gateway
+    consul:
+      host: 10.45.4.19 # consul ip client
+      port: 8500 #consul http端口
+      discovery:
+        enabled: true # 是否开启服务发现
+        register: true # 是否将服务注册到Consul集群中心
+        service-name:  xin-${spring.application.name}-${server.port}
+        health-check-path: /${spring.application.name}/health
+        health-check-interval: 15s #健康检查时间间隔
+        tags: url-prefix-/${spring.application.name} #tag
+        instance-id: ${spring.application.name}-${spring.cloud.client.ip-address}:${server.port} #注册的实例id

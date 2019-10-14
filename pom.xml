@@ -21,7 +21,7 @@
     <parent>
         <groupId>org.springframework.boot</groupId>
         <artifactId>spring-boot-starter-parent</artifactId>
-        <version>2.0.4.RELEASE</version>
+        <version>2.1.9.RELEASE</version>
         <relativePath/> <!-- lookup parent from repository -->
     </parent>
 
@@ -29,7 +29,7 @@
         <project.build.sourceEncoding>UTF-8</project.build.sourceEncoding>
         <project.reporting.outputEncoding>UTF-8</project.reporting.outputEncoding>
         <java.version>1.8</java.version>
-        <spring-cloud.version>Finchley.SR1</spring-cloud.version>
+        <spring-cloud.version>Greenwich.SR1</spring-cloud.version>
         <mapper.starter.version>2.0.3</mapper.starter.version>
         <mysql.version>5.1.47</mysql.version>
         <pageHelper.starter.version>1.2.5</pageHelper.starter.version>
@@ -40,6 +40,7 @@
 
     <dependencyManagement>
         <dependencies>
+
             <!-- springCloud -->
             <dependency>
                 <groupId>org.springframework.cloud</groupId>
@@ -48,30 +49,47 @@
                 <type>pom</type>
                 <scope>import</scope>
             </dependency>
+
             <!-- 通用Mapper启动器 -->
             <dependency>
                 <groupId>tk.mybatis</groupId>
                 <artifactId>mapper-spring-boot-starter</artifactId>
                 <version>${mapper.starter.version}</version>
             </dependency>
+
             <!-- 分页助手启动器 -->
             <dependency>
                 <groupId>com.github.pagehelper</groupId>
                 <artifactId>pagehelper-spring-boot-starter</artifactId>
                 <version>${pageHelper.starter.version}</version>
             </dependency>
+
             <!-- mysql驱动 -->
             <dependency>
                 <groupId>mysql</groupId>
                 <artifactId>mysql-connector-java</artifactId>
                 <version>${mysql.version}</version>
             </dependency>
+
             <!--FastDFS客户端-->
             <dependency>
                 <groupId>com.github.tobato</groupId>
                 <artifactId>fastdfs-client</artifactId>
                 <version>${fastDFS.client.version}</version>
             </dependency>
+
+            <!--SpringCloud consul-server -->
+            <dependency>
+                <groupId>org.springframework.cloud</groupId>
+                <artifactId>spring-cloud-starter-consul-discovery</artifactId>
+            </dependency>
+
+            <!--SpringCloud consul-server -->
+            <dependency>
+                <groupId>org.springframework.cloud</groupId>
+                <artifactId>spring-cloud-starter-gateway</artifactId>
+            </dependency>
+
         </dependencies>
     </dependencyManagement>
     <!--子工程依赖-->
@@ -83,7 +101,6 @@
         <dependency>
             <groupId>org.apache.commons</groupId>
             <artifactId>commons-lang3</artifactId>
-            <version>3.4</version>
         </dependency>
         <dependency>
             <groupId>org.projectlombok</groupId>

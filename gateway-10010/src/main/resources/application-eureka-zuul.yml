@@ -22,7 +22,7 @@ zuul:
     # spring.application.name: /服务前缀/RequestMapping地址
     common-service: /common/**
     user-service: /user/**
-    service-consumer: /consumer
+    service-consumer: /consumer/**
     #即使这样默认的配置也会生效 /common-service/** 仍然可以访问
 hystrix:
   command:
