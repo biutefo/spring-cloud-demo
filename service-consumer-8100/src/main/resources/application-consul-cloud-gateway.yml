@@ -3,6 +3,7 @@ server:
 spring:
   application:
     name: service-consumer
+  cloud:
     consul:
       host: 10.45.4.22 # consul ip
       port: 8500 #consul http端口

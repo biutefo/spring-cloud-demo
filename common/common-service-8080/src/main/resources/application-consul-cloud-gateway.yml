@@ -3,8 +3,9 @@ server:
 spring:
   application:
     name: common-service
+  cloud:
     consul:
-      host: 10.45.4.22 # consul ip
+      host: 10.45.9.233 # consul ip
       port: 8500 #consul http端口
       discovery:
         enabled: true # 是否开启服务发现
